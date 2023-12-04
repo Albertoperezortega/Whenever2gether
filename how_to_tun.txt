@@ -1,0 +1,50 @@
+in cmd run whenever2gether/app.py
+
+then open website http://146.176.76.223:5000
+
+Database run-------------
+1.Go to the folder path:
+cd Desktop\Advanced web\whenever2gether
+
+2. run python:
+python
+
+3. innitialize db (Main is the name of the file):
+
+from Main import app, db
+app.app_context().push()
+db.create_all()
+
+4. Import classes into db
+
+from Main import Person, Event
+
+5. create instance of class
+
+Person_1 = Person(username='Asd', email='a@gmail.com',password='asd')
+Person_2 = Person(username='Test', email='test@gmail.com',password='test')
+Person_3 = Person(username='Test2', email='test2@gmail.com',password='test2')
+
+
+
+6. add user to db
+
+db.session.add(Person_2)
+db.session.commit()
+
+7.
+
+Person.query.all()
+Person.query.filter_by(username='Asd').first()
+Person.query.get(1) ------------ gets user with id = '1'
+
+8.
+
+temporal_var = Person.query.filter_by(username='Asd').first()
+event_2 = Event(title='Test title', description='Test description', person_id=temporal_var.id)
+
+
+
+
+
+

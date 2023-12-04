@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+    <!-- Log in form -->
+    <form method="POST" action="">
+        {{ log_form.hidden_tag()}}
+        <fieldset class ="form-group">
+            <legend class="border-bottom mb-3"> 
+                <h2 class="accordion-header">Log in</h2>
+            </legend>
+            
+            <!-- Input Email -->
+            <div class="form-group col-3">
+                {{ log_form.email.label(class="form-control-label") }}
+                
+                {% if log_form.email.errors %}
+                    <!-- Email errors -->
+                    {{ log_form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in log_form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    <!-- Display email input field -->
+                    {{ log_form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <!-- Input Password -->
+            <div class="form-group col-3">
+                {{ log_form.password.label(class="form-control-label") }}
+
+                {% if log_form.password.errors %}
+                    <!-- Password errors -->
+                    {{ log_form.password(class="form-control form-control-sm is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in log_form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    <!-- Display password input field -->
+                    {{ log_form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        
+        <!-- Submit button -->
+        <div class ="form-group mb-3">
+            {{ log_form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+
+    <div class="border-top pt-lg-4">
+        <small class="text-muted">
+            <!-- Link to registration page -->
+            Want to create an account, <a class="ml-2" href="{{ url_for('register') }}"> register here</a>
+        </small>
+        
+        <!-- Flashed messages-->
+        {% for mesg in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">{{ mesg }}</div>
+        {% endfor %}
+    </div>
+{% endblock content %}

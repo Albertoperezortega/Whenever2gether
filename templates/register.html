@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+{% block content %}
+    <!-- Registration form -->
+    <form method="POST" action="">
+        {{ reg_form.hidden_tag()}}
+        <fieldset class ="form-group">
+            <legend class="border-bottom mb-3"> 
+                <h2 class="accordion-header">Create an account</h2>
+            </legend>
+            
+            <!-- Input Username -->
+            <div class="form-group col-3" >
+                {{ reg_form.username.label(class="form-control-label") }}
+                
+                {% if reg_form.username.errors %}
+                    <!--Username errors -->
+                    {{ reg_form.username(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in reg_form.username.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <!-- Display username input field -->
+                    {{ reg_form.username(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <!-- Input Email -->
+            <div class="form-group col-3">
+                {{ reg_form.email.label(class="form-control-label") }}
+                
+                {% if reg_form.email.errors %}
+                    <!-- Email errors -->
+                    {{ reg_form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in reg_form.email.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <!-- Display email input field -->
+                    {{ reg_form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <!-- Input Password -->
+            <div class="form-group col-3">
+                {{ reg_form.password.label(class="form-control-label") }}
+                
+                {% if reg_form.password.errors %}
+                    <!-- Password errors -->
+                    {{ reg_form.password(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in reg_form.password.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <!-- Display password input field -->
+                    {{ reg_form.password(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <!-- Input Confirm Password -->
+            <div class="form-group col-3">
+                {{ reg_form.confirm_password.label(class="form-control-label") }}
+                
+                {% if reg_form.confirm_password.errors %}
+                    <!-- Confirm_password errors  -->
+                    {{ reg_form.confirm_password(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in reg_form.confirm_password.errors %}
+                            <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <!-- Display confirm password input field -->
+                    {{ reg_form.confirm_password(class="form-control form-control-lg") }}
+                {% endif %}    
+            </div>
+        </fieldset>
+        
+        <!-- Submit button -->
+        <div class ="form-group mb-3 p-1">
+            {{ reg_form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+
+    <div class="border-top pt-lg-4">
+        <small class="text-muted">
+            <!-- Link to login page -->
+            Already have an account? <a class="ml-2" href="{{ url_for('login') }}">login</a>
+        </small>
+    </div>
+{% endblock content %}

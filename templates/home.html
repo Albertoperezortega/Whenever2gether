@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    {% if current_user.is_authenticated %}
+        <!-- Display for authenticated users -->
+        <div class="container border-primary border p-4 p-4 pb-5 border_black">
+            <img src="/static/profile_pics/default.jpg" alt="Profile Picture" class="profile-picture">
+            <h1>Welcome back {{current_user.username}}</h1>
+            <p>Check out some of the new events</p>
+        </div>
+    {% else %}
+        <!-- Display for non-authenticated users -->
+        <div class="container border-primary border p-4 pb-5 border_black">
+            <h1>Welcome to Whenever2gether</h1>
+            <p>Cherish your passion where every pursuit finds its community.</p>
+            <a href="/register" class="btn btn-primary">Register</a>
+            <a href="/login" class="btn btn-primary">Login</a>
+        </div>
+    {% endif %}
+    <hr>
+</section>
+
+<!-- Line that cuts sections -->
+<line class="fw-bold bigger_text"> All events</line>
+<hr class="search">  
+
+<!-- Content Section -->
+<section class="content-section">
+    <div class="container">
+        {% if events %}
+            <!-- Loop through all available events -->
+            {% for event in events %}
+                <div class="event-box">
+                    <div class="navbar_event">
+                        <!-- for future implementation -->
+                        <!-- <img src="{{ event.event_image}}"> -->
+                        <h2>{{ event.title }}</h2>
+                        <h4>Event starts at: {{ event.date_event.strftime('%d-%h-%y') }} at {{ event.date_event.strftime('%H') }}:{{ event.date_event.strftime('%M') }}</h4>
+                    </div>
+                    <p> Organizer: {{ event.author.username }}</p>
+                    <p> Date created: {{ event.date_created.strftime('%d/%m/%Y') }}</p>
+                    <div class="description-container">
+                        <p>{{ event.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<!-- Create Event Button -->
+<a href="/events/new"> <button class="create_event"> + </button> </a>
+
+</body>
+</html>
+
+{% endblock content %}

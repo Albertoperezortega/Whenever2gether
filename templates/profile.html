@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>User Profile</title>
+
+<body>
+  <!-- User Profile Section -->
+  <div class="profile-container">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ profile_image }}" alt="Profile Picture" class="profile-picture rounded-circle">
+      </div>
+      <div class="col-md-7">
+        <h2>Username: {{current_user.username}} </h2>
+        <p class="m-1"> Email: {{current_user.email}} </p>
+        <img src="/static/images/instagram.png" height=30 width=30 class = "m-1"><br>
+        <img src="/static/images/facebook.png" height=30 width=30 class="m-1">
+      </div>
+      
+    </div>
+
+    <!-- Description Box -->
+    <div class="description-box mt-4">
+      <h3>Description</h3>
+      <p>This is a brief description of the user. You can add more details here.</p>
+    </div>
+    <!-- User Activities Section -->
+    <div class="mt-4">
+      <h3>User Activities</h3>
+      <ul class="list-group">
+        {% set count = 0 %}
+        {% for event in events %}
+          {% if count < 4 %}
+            <li class="list-group-item">{{ event.title }}</li>
+            {% set count = count + 1 %}
+          {% endif %}
+        {% endfor %}
+      </ul>
+      
+      
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <!-- This displays the event form -->
+    <form method="POST" action="">
+        {{ event_form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-3"> 
+                <h2 class="accordion-header">Start an event</h2>
+            </legend>
+            
+            <!-- Input title -->
+            <div class="form-group col-3">
+                {{ event_form.title.label(class="form-control-label") }}
+                
+                {% if event_form.title.errors %}
+                    <!-- Display title errors if any -->
+                    {{ event_form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in event_form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    <!-- Display title input field -->
+                    {{ event_form.title(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <!-- Input Description -->
+            <div class="form-group col-3">
+                {{ event_form.description.label(class="form-control-label") }}
+                
+                {% if event_form.description.errors %}
+                    <!-- Display description errors if any -->
+                    {{ event_form.description(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in event_form.description.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    <!-- Display description input field -->
+                    {{ event_form.description(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <!-- Input Photo -->
+            <div class="form-group col-3">
+                {{ event_form.photo.label(class="form-control-label") }}
+                
+                {% if event_form.photo.errors %}
+                    <!-- Display photo errors if any -->
+                    {{ event_form.photo(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in event_form.photo.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    <!-- Display photo input field -->
+                    {{ event_form.photo(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            <!-- Input Time -->
+            <div class="form-group col-3">
+                {{ event_form.time.label(class="form-control-label") }}
+                <l class="fst-italic"> (d/m/y h:m) </l>
+                
+                {% if event_form.time.errors %}
+                    <!-- Display time errors if any -->
+                    {{ event_form.time(class="form-control form-control-sm is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in event_form.time.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+
+                {% else %}
+                    <!-- Display time input field -->
+                    {{ event_form.time(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        
+        <!-- Submit button -->
+        <div class="form-group mb-3">
+            {{ event_form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+    
+    <!-- Display messages if error -->
+    <div class="border-top pt-lg-4">
+        {% for mesg in get_flashed_messages() %}
+            <div class="alert alert-danger" role="alert">{{ mesg }}</div>
+        {% endfor %}
+    </div>
+{% endblock content %}

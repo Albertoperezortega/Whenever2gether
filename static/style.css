@@ -1,0 +1,146 @@
+body{
+    background-color: rgba(255, 157, 83, 0.127); 
+    width: auto;
+    height: auto;
+
+
+}
+head{
+    margin: 10;
+}
+
+.custom-navbar {
+    background-color: #ffad77; 
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+}
+
+.box {
+    background-color: lightblue;
+    border: 1px solid blue;
+    min-height: 50px;
+    font-size: 2rem;
+}
+
+.m-auto { 
+    padding-left: 85%;
+}
+
+.nav-link{
+    font-size: 130%;
+}
+
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+.border_black {
+    border: rgb(0, 0, 0);
+    border-radius: 10px;        
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #119da4b4;
+}
+
+.black_line {
+    border: 1px solid black;
+    margin: 0;
+}
+
+.event-box {
+    border: 1px solid #ccc;
+    padding: 20px; 
+    margin: 20px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.description-container {
+    font-style: italic;
+    color: #555;
+    border: 1px solid #ccc;
+    padding: 20px; 
+    margin: 20px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar_event {
+    background-color: #C2EABD;
+    padding: 10px; 
+    margin-bottom: 20px; 
+}
+
+.footer{
+    bottom: 0;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.hero-section {
+    color: #000000;
+    text-align: center;
+    padding: 50px;
+  }
+
+.create_event{
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    background-color: #ffad77;
+    color: #fff;
+    border-radius: 100%;
+    padding-bottom: 100px;
+    width: 170px;
+    height: 170px;
+    opacity: 70%;
+    font-size: 100px;
+}
+
+.content-section {
+    padding: 0px 0;
+}
+
+.bigger_text{
+    font-size: xx-large
+}
+
+.profile-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.description-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
